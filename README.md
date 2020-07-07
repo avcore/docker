@@ -2,13 +2,19 @@
 
 Simple and lightweight docker image for previewing Elasticsearch and Kibana.
 
-### Usage
+### KIBANA + ELASTICSEARCH
 
     docker run -d -p 9200:9200 -p 5601:5601 nshou/elasticsearch-kibana
 
 Then you can connect to Elasticsearch by `localhost:9200` and its Kibana front-end by `localhost:5601`.
 
-### Tags
+### LOGSTASH
+To start a basic container, specify `--env LS_ES_CONN_STR=[hostname/IP]:[port]` (separate multiple values with comma, ',') for a remote Elasticsearch instance. This will be applied to the default `logstash.conf` file. For example:
+
+```sh
+docker run -d --name --publish 5000:5000 --env LS_ES_CONN_STR=elasticsearch.local:9200 monsantoco/logstash
+```
+### Tags    KIBANA + ELASTICSEARCH
 
 Tag     | Elasticsearch | Kibana
 ------- | ------------- | ------
